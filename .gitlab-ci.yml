@@ -1,0 +1,13 @@
+stages:
+  - docker
+
+docker-image:
+  stage: docker
+  image: registry.ekuaibao.com/ci/ci-bash
+  script:
+    - docker build -t registry.ekuaibao.com/library/apisix:0.8 ./docker/
+    - docker push registry.ekuaibao.com/library/apisix:0.8
+  only:
+    - /^apisix-/
+  tags:
+    - hose

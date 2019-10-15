@@ -164,8 +164,6 @@ RUN apk add --no-cache --virtual .build-deps \
 ENV LUA_PATH="/usr/local/openresty/site/lualib/?.ljbc;/usr/local/openresty/site/lualib/?/init.ljbc;/usr/local/openresty/lualib/?.ljbc;/usr/local/openresty/lualib/?/init.ljbc;/usr/local/openresty/site/lualib/?.lua;/usr/local/openresty/site/lualib/?/init.lua;/usr/local/openresty/lualib/?.lua;/usr/local/openresty/lualib/?/init.lua;./?.lua;/usr/local/openresty/luajit/share/luajit-2.1.0-beta3/?.lua;/usr/local/share/lua/5.1/?.lua;/usr/local/share/lua/5.1/?/init.lua;/usr/local/openresty/luajit/share/lua/5.1/?.lua;/usr/local/openresty/luajit/share/lua/5.1/?/init.lua"
 ENV LUA_CPATH="/usr/local/openresty/site/lualib/?.so;/usr/local/openresty/lualib/?.so;./?.so;/usr/local/lib/lua/5.1/?.so;/usr/local/openresty/luajit/lib/lua/5.1/?.so;/usr/local/lib/lua/5.1/loadall.so;/usr/local/openresty/luajit/lib/lua/5.1/?.so"
 
-COPY ./rockspec/apisix-${APISIX_VERSION}-0.rockspec /app/apisix-${APISIX_VERSION}-0.rockspec
-
 # for APISIX
 RUN apk add --no-cache --virtual .builddeps \
     automake \
@@ -174,7 +172,7 @@ RUN apk add --no-cache --virtual .builddeps \
     pkgconfig \
     cmake \
     git \
-    && luarocks install /app/apisix-${APISIX_VERSION}-0.rockspec --tree=/usr/local/apisix/deps \
+    && luarocks install https://raw.githubusercontent.com/xsi640/apisix/master/rockspec/apisix-${APISIX_VERSION}-0.rockspec --tree=/usr/local/apisix/deps \
     && cp /usr/local/apisix/deps/lib/luarocks/rocks-5.1/apisix/${APISIX_VERSION}-0/bin/apisix /usr/bin/ \
     && bin='#! /usr/local/openresty/luajit/bin/luajit' \
     && sed -i "1s@.*@$bin@" /usr/bin/apisix \

@@ -4,7 +4,7 @@ supported_platforms = {"linux", "macosx"}
 
 source = {
     url = "https://git.ekuaibao.com/devops/apisix",
-    branch = "v0.8",
+    branch = "master",
 }
 
 description = {

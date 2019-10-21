@@ -1,10 +1,10 @@
 package = "apisix"
-version = "0.8-0"
+version = "0.6-0"
 supported_platforms = {"linux", "macosx"}
 
 source = {
     url = "git://github.com/iresty/apisix",
-    branch = "v0.8",
+    branch = "v0.6",
 }
 
 description = {
@@ -15,23 +15,18 @@ description = {
 }
 
 dependencies = {
+    "lua-resty-libr3 = 1.0",
     "lua-resty-template = 1.9",
-    "lua-resty-etcd = 0.7",
+    "lua-resty-etcd = 0.6",
     "lua-resty-balancer = 0.02rc5",
-    "lua-resty-ngxvar = 0.4",
+    "lua-resty-ngxvar = 0.3",
     "lua-resty-jit-uuid = 0.0.7",
     "rapidjson = 0.6.1",
-    "lua-resty-healthcheck-iresty = 1.0.1",
+    "lua-resty-healthcheck-iresty = 1.0.0",
     "lua-resty-jwt = 0.2.0",
     "lua-resty-cookie = 0.1.0",
     "lua-resty-session = 2.24",
     "opentracing-openresty = 0.1",
-    "lua-resty-radixtree = 1.2",
-    "lua-protobuf = 0.3.1",
-    "lua-resty-openidc = 1.7.2-1",
-    "luafilesystem = 1.7.0-2",
-    "lua-tinyyaml = 0.1",
-    "iresty-nginx-lua-prometheus = 0.20190917",
 }
 
 build = {

@@ -4,7 +4,7 @@ supported_platforms = {"linux", "macosx"}
 
 source = {
     url = "git://github.com/xsi640/apisix",
-    branch = "v0.8",
+    branch = "master",
 }
 
 description = {

@@ -320,6 +320,10 @@ http {
             proxy_pass_header  Date;
             proxy_pass         $upstream_scheme://apisix_backend$upstream_uri;
 
+            proxy_buffering off;
+            proxy_cache off;
+            chunked_transfer_encoding off;
+
             header_filter_by_lua_block {
                 apisix.http_header_filter_phase()
             }

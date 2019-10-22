@@ -3,7 +3,7 @@ version = "0.8-0"
 supported_platforms = {"linux", "macosx"}
 
 source = {
-    url = "git://github.com/iresty/apisix",
+    url = "git://github.com/xsi640/apisix",
     branch = "v0.8",
 }
 
